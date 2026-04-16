@@ -1,0 +1,22 @@
+services:
+  - name: aimock-test-service
+    labels:
+      deployment: default
+    upstream:
+      name: aimock-upstream
+      scheme: http
+      nodes:
+        - host: ${MOCK_HOST}
+          port: ${MOCK_PORT}
+          weight: 1
+    routes:
+      - uris:
+          - /v1/chat/completions
+        name: aimock-test-route
+        methods:
+          - POST
+global_rules:
+  prometheus:
+    _meta:
+      disable: true
+    prefer_name: false
