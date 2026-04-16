@@ -58,6 +58,12 @@ wrk -t 4 -c 400 -d 60s -R 20000 --latency -s /req-body.lua http://localhost:1980
 
 ## Phase 5: Without `ai-proxy` plugin
 
+Apply the no-plugin ADC config before running this phase:
+
+```bash
+envsubst < config/no-ai-proxy.yaml | adc sync -f -
+```
+
 ```bash
 wrk -t 4 -c 100 -d 60s -R 10000 --latency -s /req-body.lua http://localhost:9080/v1/chat/completions
 wrk -t 4 -c 200 -d 60s -R 20000 --latency -s /req-body.lua http://localhost:9080/v1/chat/completions
