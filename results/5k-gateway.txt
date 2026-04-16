@@ -1,9 +1,9 @@
-/ # wrk -t 4 -c 100 -d 60s -R 5000 --latency -s /req-body.lua http://localhost:9080/v1/cha
-t/completions
+wrk -t 4 -c 100 -d 60s -R 5000 --latency -s /req-body.lua http://localhost:9080/v1/chat/completions
 Running 1m test @ http://localhost:9080/v1/chat/completions
   4 threads and 100 connections
   Thread calibration: mean lat.: 2526.239ms, rate sampling interval: 9207ms
   Thread calibration: mean lat.: 2662.220ms, rate sampling interval: 8847ms
+  Thread calibration: mean lat.: 2559.460ms, rate sampling interval: 9265ms
   Thread calibration: mean lat.: 2559.460ms, rate sampling interval: 9265ms
   Thread calibration: mean lat.: 2531.646ms, rate sampling interval: 9215ms
   Thread Stats   Avg      Stdev     Max   +/- Stdev
